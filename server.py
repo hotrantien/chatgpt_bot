@@ -8,7 +8,7 @@ openai.api_key="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"
 token = "6142381231:AAHOCK20s4jdpaNQoRRdFgdHkznR8G8eGVk"
 
 async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(f'Hello {update.effective_user.first_name}')
+    await update.message.reply_text(f'Hello {update.effective_user.last_name}')
 
 async def ask(update, context):
     # Get the user's message
@@ -28,5 +28,5 @@ async def ask(update, context):
 
 app = ApplicationBuilder().token(token).build()
 app.add_handler(CommandHandler("hello", hello))
-app.add_handler(CommandHandler("ask", ask))
+app.add_handler(CommandHandler("ai", ask))
 app.run_polling()
